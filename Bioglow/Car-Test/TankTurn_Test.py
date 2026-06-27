@@ -3,6 +3,7 @@ from pybricks.hubs import PrimeHub
 from pybricks.parameters import Direction, Port
 from pybricks.pupdevices import Motor
 from pybricks.robotics import DriveBase
+from common import beep
 
 # Set up.
 prime_hub = PrimeHub()
@@ -21,11 +22,11 @@ def Tank_Turn(Speed, orientation):
         robot.use_gyro(True)
         temp = abs(0) + 90 * turns
         robot.turn(orientation * 90)
-        prime_hub.speaker.beep(500, 100)
+        beep(prime_hub)
         turns = turns + 1
     print('Testing Result: Speed=', Speed, 'Delta=', abs(prime_hub.imu.heading()) - 360)
     testscore = testscore + (abs(prime_hub.imu.heading()) - 360)
-    prime_hub.speaker.beep(500, 100)
+    beep(prime_hub)
 
 
 # The main program starts here.
